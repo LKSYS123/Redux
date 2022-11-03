@@ -17,7 +17,7 @@ const AuthFormBlock = styled.div`
 const StyleInput = styled.input`
     font-size: 1rem;
     border: none;
-    border-bottom:1px solid ${palette.gray[5]};
+    border-bottom: 1px solid ${palette.gray[5]};
     padding-bottom: 0.5rem;
     outline: non;
     width: 100%;
@@ -50,12 +50,12 @@ const ButtonWithMarginTop = styled(Button)`
 const textMap = {
     login: '로그인',
     register: '회원가입',
-}
+};
 
 // 에러 출력
 const ErrorMessage = styled.div`
     color: red;
-    text-align: centet;
+    text-align: center;
     font-size: 0.875rem;
     margin-top: 1rem;
 `;
@@ -66,24 +66,54 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
         <AuthFormBlock>
             <h3>{text}</h3>
             <form onSubmit={onSubmit}>
-                <StyleInput autoComplete="UserId" name="UserId" placeholder="아이디" onChange={onChange} value={form.UserId} />
-                <StyleInput autoComplete="new-password" name="UserPass" placeholder="비밀번호" type="password" onChange={onChange} value={form.UserPass} />
+                <StyleInput
+                    autoComplete='UserId'
+                    name='UserId'
+                    placeholder='아이디'
+                    onChange={onChange}
+                    value={form.UserId}
+                />
+                <StyleInput
+                    autoComplete='new-password'
+                    name='UserPass'
+                    placeholder='비밀번호'
+                    type='password'
+                    onChange={onChange}
+                    value={form.UserPass}
+                />
                 {type === 'register' && (
                     <>
-                        <StyleInput autoComplete="new-password" name="UserPassConfirm" placeholder="비밀번호 확인" type="password" onChange={onChange} value={form.UserPassConfirm} />
-                        <StyleInput autoComplete="UserName" name="UserName" placeholder="이름" onChange={onChange} value={form.UserName} />
+                        <StyleInput
+                            autoComplete='new-password'
+                            name='UserPassConfirm'
+                            placeholder='비밀번호 확인'
+                            type='password'
+                            onChange={onChange}
+                            value={form.UserPassConfirm}
+                        />
+                        <StyleInput
+                            autoComplete='UserName'
+                            name='UserName'
+                            placeholder='이름'
+                            onChange={onChange}
+                            value={form.UserName}
+                        />
                     </>
                 )}
                 {error && <ErrorMessage>{error}</ErrorMessage>}
-                <ButtonWithMarginTop cyan fullWidth style={{ marginTop: '1rem' }}>
+                <ButtonWithMarginTop
+                    cyan
+                    fullWidth
+                    style={{ marginTop: '1rem' }}
+                >
                     {text}
                 </ButtonWithMarginTop>
             </form>
             <Footer>
                 {type === 'login' ? (
-                    <Link to="/register">회원가입</Link>
+                    <Link to='/register'>회원가입</Link>
                 ) : (
-                    <Link to="login">로그인</Link>
+                    <Link to='login'>로그인</Link>
                 )}
             </Footer>
         </AuthFormBlock>

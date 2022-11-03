@@ -23,6 +23,5 @@
     "test": "node scripts/test.js",
     "server": "nodemon src/index.js",
     "dev": "concurrently \"nodemon src/index.js\""
-  },
-  "proxy": "http://localhost:4000"
+  }
 }
